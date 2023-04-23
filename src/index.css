@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.bg-primary {
+  background-color: #210b2c;
+}
+
+.bg-gradient {
+  background: linear-gradient(
+    91.69deg,
+    #55286f 14.83%,
+    #d8b4e2 50.46%,
+    #efd6ac 90.52%
+  );
+}
+
+.text-bebas {
+  font-family: "Bebas Neue", cursive;
+}
+
+.text-purple {
+  color: #210b2c;
+}
+
+.text-light-pink {
+  color: #d8b4e2;
+}
+
+.text-yellow {
+  color: #efd6ac;
+}
+
+.text-dark-pink {
+  color: #bc96e6;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    91.69deg,
+    #55286f 14.83%,
+    #d8b4e2 50.46%,
+    #efd6ac 90.52%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+img#footer {
+  background: url(/footer.jpg);
+  width: 100%;
+  mix-blend-mode: exclusion;
+}
