@@ -55,3 +55,76 @@ img#footer {
   width: 100%;
   mix-blend-mode: exclusion;
 }
+
+button#login:hover{
+  border: 2px solid #bc96e6;
+}
+
+button#forgot:hover{
+  text-decoration: underline;
+}
+
+.rs-slider-bar {
+  height: 10px;
+  border-radius: 15px;
+  background-color: #f2f2f5;
+  -webkit-transition: background-color ease-in-out 0.3s;
+  transition: background-color ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.rs-slider-progress-bar {
+  width: auto;
+  position: absolute;
+  height: 10px;
+  border-radius: 3px 0 0 3px;
+  background-color: #bc96e6;
+}
+
+.rs-slider-graduator > ol > li.rs-slider-pass::before {
+  width: 12px;
+  height: 12px;
+  border-color: #d8b4e2;
+}
+
+.rs-slider-graduator > ol > li.rs-slider-pass::after {
+  width: 12px;
+  height: 12px;
+  border-color: #d8b4e2;
+}
+/* Fix for the last gradation */
+
+
+.rs-slider-handle::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: #bc96e6;
+  margin-left: -6px;
+  cursor: pointer;
+  /* stylelint-disable */
+  -webkit-transition: background-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    transform 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out,
+    -webkit-transform 0.15s ease-in-out;
+  /* stylelint-enable */
+}
+.rs-slider-handle:hover::before,
+.rs-slider-handle:focus::before {
+  -webkit-box-shadow: 0 0 0 8px rgba(52, 152, 255, 0.25);
+  -webkit-box-shadow: var(--rs-slider-thumb-hover-shadow);
+  box-shadow: 0 0 0 8px rgba(52, 152, 255, 0.25);
+  box-shadow: var(--rs-slider-thumb-hover-shadow);
+}
+.rs-slider-handle:active::before,
+.rs-slider-handle.active::before {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}

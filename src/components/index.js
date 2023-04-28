@@ -4,5 +4,20 @@ import Map from "./Map";
 import Music from "./Music";
 import Hero from "./Hero";
 import Flip from "./Flip";
+import MusicTest from "./MusicTest";
+import MapPage from "./MapPage";
+import Login from "./Login";
+import AuthProvider from "./AuthContext";
 
-export { Navbar, Footer, Map, Music, Hero, Flip };
+export {
+  Navbar,
+  Footer,
+  Map,
+  Music,
+  Hero,
+  Flip,
+  MusicTest,
+  MapPage,
+  Login,
+  AuthProvider,
+};
