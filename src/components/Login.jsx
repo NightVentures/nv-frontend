@@ -133,7 +133,7 @@ function Login(props) {
                         {currentViewComponent()}
                     </div>
                     <div className='flex flex-end lg:w-1/2'>
-                        <img src={login}
+                        <img id="login-image" src={login}
                             style={{ width: "auto", height: 900, borderRadius: "63px", opacity: "0.6", transition: "opacity 0.3s" }}
                             onMouseOver={(e) => { e.currentTarget.style.opacity = "1.0" }}
                             onMouseOut={(e) => { e.currentTarget.style.opacity = "0.6" }}

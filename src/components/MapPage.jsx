@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import RealMap from './RealMap';
 
 function MapPage() {
   const navigate = useNavigate();
@@ -25,9 +26,10 @@ function MapPage() {
         </div>
       </div>
       <div style={{
-        height: 1384, backgroundColor: "#210B2C", width: "100%",
-        display: 'block', padding: 30
+        height: "auto", backgroundColor: "#210B2C", width: "100%",
+        display: 'block', padding: 40
       }}>
+        <RealMap />
       </div>
     </div>
   )

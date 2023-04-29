@@ -56,12 +56,20 @@ img#footer {
   mix-blend-mode: exclusion;
 }
 
-button#login:hover{
+button#login:hover {
   border: 2px solid #bc96e6;
 }
 
-button#forgot:hover{
+button#forgot:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  img#login-image {
+    display: none;
+  }
+
+  
 }
 
 .rs-slider-bar {
@@ -93,7 +101,6 @@ button#forgot:hover{
   border-color: #d8b4e2;
 }
 /* Fix for the last gradation */
-
 
 .rs-slider-handle::before {
   content: "";

@@ -1,11 +1,10 @@
 import React from 'react'
 import account from '/account.svg'
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react'
+
 
 const Navbar = () => {
   const navigate = useNavigate()
-  const { loggedIn, setLoggedIn } = useContext(AuthContext)
 
   const handleLoginClick = () => {
     navigate('/login')
@@ -30,11 +29,7 @@ const Navbar = () => {
         <h1 className='text-mont text-3xl text-light-pink ml-3'>NightVentures</h1>
         <div className='flex'>
           <img src={account} alt='account' className='mr-1' />
-          {loggedIn ? (
-            <button className='font-mont font-semibold text-xl text-yellow mr-6 border-b border-transparent hover:border-white' onClick={() => handleLogoutClick()}>Logout</button>
-          ) : (
-            <button className='font-mont font-semibold text-xl text-yellow mr-6 border-b border-transparent hover:border-white' onClick={() => handleLoginClick()}>Login</button>
-          )}
+          <button className='font-mont font-semibold text-xl text-yellow mr-6 border-b border-transparent hover:border-white' onClick={() => handleLoginClick()}>Login</button>
           <button className='font-mont font-semibold text-xl text-yellow mr-6 border-b border-transparent hover:border-white' onClick={() => handleMusicClick()}>Music</button>
           <button className='font-mont font-semibold text-xl text-yellow mr-6 border-b border-transparent hover:border-white' onClick={() => handleMapClick()}>Map</button>
         </div>

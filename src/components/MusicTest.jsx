@@ -65,10 +65,10 @@ const MusicTest = () => {
         </div>
       </div>
       <div style={{
-        height: 1384, backgroundColor: "#210B2C", width: "100%",
+        height: "auto", backgroundColor: "#210B2C", width: "100%",
         display: 'block', padding: 30
       }}>
-        <h1 className='text-gradient text-bebas text-8xl pt-4 pb-6'>Find your musical match</h1>
+        <h1 className='text-gradient text-bebas text-7xl pt-4 pb-6 md:text-8xl lg:text-8xl'>Find your musical match</h1>
         <p className='text-white font-mont text-3xl pb-6'>Answer these questions on a scale of 1 from 10 so we can match you to the right clubs!</p>
         <p className='text-white font-mont text-2xl pb-6'>1. How important is it for the music you listen to to feel alive and energetic?</p>
         <Slider
@@ -160,6 +160,9 @@ const MusicTest = () => {
           className='my-slider'
         />
         <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {tempo}</p>
+        <div className='flex justify-center'>
+          <button className='bg-gradient w-80 text-bebas text-3xl text-purple py-2 px-10 rounded-full' onClick={() => handleMapClick()}>Continue to Map</button>
+        </div>
       </div>
     </div>
   )
