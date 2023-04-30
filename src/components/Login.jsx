@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import login from '/login-pic.jpg'
 
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 function Login(props) {
+
     const [currentView, setCurrentView] = useState("logIn")
     const [loggedIn, setLoggedIn] = useState(false)
     const navigate = useNavigate()
@@ -12,11 +16,52 @@ function Login(props) {
     const [passwordConfirm, setPasswordConfirm] = useState("")
     const [rememberMe, setRememberMe] = useState(false)
 
-
-
-    const handleLogin = () => {
-        setLoggedIn(true)
-        navigate('/')
+    const handleLogin = (e) => {
+        e.preventDefault();
+        if (currentView === "logIn") {
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user)
+                    setLoggedIn(true)
+                    navigate("/")
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                });
+        } else if (currentView === "signUp") {
+            if (password === passwordConfirm) {
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        console.log(user)
+                        setLoggedIn(true)
+                        navigate("/")
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.log(errorCode)
+                        console.log(errorMessage)
+                    });
+            } else {
+                alert("Passwords do not match!")
+            }
+        } else if (currentView === "PWReset") {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    console.log("Password Reset Email Sent!")
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                });
+        }
     }
 
     const changeView = (view) => {
