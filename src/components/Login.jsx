@@ -7,6 +7,13 @@ function Login(props) {
     const [loggedIn, setLoggedIn] = useState(false)
     const navigate = useNavigate()
 
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [passwordConfirm, setPasswordConfirm] = useState("")
+    const [rememberMe, setRememberMe] = useState(false)
+
+
+
     const handleLogin = () => {
         setLoggedIn(true)
         navigate('/')
@@ -29,16 +36,16 @@ function Login(props) {
                                     borderRadius: "7px",
                                     width: "451px",
                                     height: "68px"
-                                }} type='text' placeholder='Email' />
+                                }} type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
                                 <input className='font-mont text-xl text-dark-pink bg-transparent p-3 mt-6 mb-8 border-2 rounded-lg' style={{
                                     border: "2px solid #D9BBF9",
                                     borderRadius: "7px",
                                     width: "451px",
                                     height: "68px"
-                                }} type='text' placeholder='Password' />
+                                }} type='text' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                                 <div className='flex flex-row space-x-20 mb-4'>
                                     <div className="flex flex-row">
-                                        <input type="checkbox" className="mr-2 bg-transparent" />
+                                        <input type="checkbox" className="mr-2 bg-transparent" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} />
                                         <p className='font-mont text-xl text-white'>Keep me logged in</p>
                                     </div>
                                     <button id="forgot" className='font-mont text-xl text-dark-pink' onClick={() => changeView("PWReset")}>Forgot Password?</button>
@@ -65,7 +72,7 @@ function Login(props) {
                                     borderRadius: "7px",
                                     width: "451px",
                                     height: "68px"
-                                }} type='text' placeholder='Email' />
+                                }} type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
                                 <button id="login" className='text-bebas text-3xl text-white pt-1 mt-3' style={{
                                     backgroundColor: "#55286F", width: "446px", height: "73px", borderRadius: "10px"
                                 }} onClick={() => handleLogin()}>Send Reset Link</button>
@@ -88,19 +95,19 @@ function Login(props) {
                                     borderRadius: "7px",
                                     width: "451px",
                                     height: "68px"
-                                }} type='text' placeholder='Email' />
+                                }} type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
                                 <input className='font-mont text-xl text-dark-pink bg-transparent p-3 mt-6 mb-4 border-2 rounded-lg' style={{
                                     border: "2px solid #D9BBF9",
                                     borderRadius: "7px",
                                     width: "451px",
                                     height: "68px"
-                                }} type='text' placeholder='Password' />
+                                }} type='text' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                                 <input className='font-mont text-xl text-dark-pink bg-transparent p-3 mt-6 mb-4 border-2 rounded-lg' style={{
                                     border: "2px solid #D9BBF9",
                                     borderRadius: "7px",
                                     width: "451px",
                                     height: "68px"
-                                }} type='text' placeholder='Confirm Password' />
+                                }} type='text' placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                                 <button id="login" className='text-bebas text-3xl text-white pt-1 mt-3' style={{
                                     backgroundColor: "#55286F", width: "446px", height: "73px", borderRadius: "10px"
                                 }} onClick={() => handleLogin()}>Sign Up</button>
