@@ -1,24 +1,25 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'rsuite/dist/rsuite.css'
 import { Slider } from 'rsuite';
 
 const MusicTest = () => {
   const [liveness, setLiveness] = useState(0);
-  const [loudness, setLoudness] = useState(0);
+  const [popularity, setPopularity] = useState(0);
   const [danceability, setDanceability] = useState(0);
   const [energy, setEnergy] = useState(0);
-  const [speechiness, setSpeechiness] = useState(0);
+  const [acousticness, setAcousticness] = useState(0);
   const [valence, setValence] = useState(0);
-  const [tempo, setTempo] = useState(0);
+  const [bpm, setBpm] = useState(0);
+  const [result, setResult] = useState();
 
   const handleLivenessChange = (value) => {
     setLiveness(value);
   }
 
-  const handleLoudnessChange = (value) => {
-    setLoudness(value);
+  const handlePopularityChange = (value) => {
+    setPopularity(value);
   }
 
   const handleDanceabilityChange = (value) => {
@@ -29,16 +30,16 @@ const MusicTest = () => {
     setEnergy(value);
   }
 
-  const handleSpeechinessChange = (value) => {
-    setSpeechiness(value);
+  const handleAcousticnessChange = (value) => {
+    setAcousticness(value);
   }
 
   const handleValenceChange = (value) => {
     setValence(value);
   }
 
-  const handleTempoChange = (value) => {
-    setTempo(value);
+  const handleBpmChange = (value) => {
+    setBpm(value);
   }
 
   const navigate = useNavigate();
@@ -50,6 +51,31 @@ const MusicTest = () => {
   const handleHomeClick = () => {
     navigate('/');
     window.location.reload();
+  }
+
+  const handleMusicClick = () => {
+    const features = { bpm: bpm, energy: energy, danceability: danceabilitu, liveness: liveness, valence: valence, acousticness: acousticness, popularity: popularity };
+    const data = {
+      features: Object.values(features).map((value) => [value]),
+    };
+
+    fetch('http://localhost:8000/predict', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        setResult(data.predicted_genre)
+        console.log("Features: ", features);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
 
   return (
@@ -73,95 +99,90 @@ const MusicTest = () => {
         <p className='text-white font-mont text-2xl pb-6'>1. How important is it for the music you listen to to feel alive and energetic?</p>
         <Slider
           min={0}
-          max={100}
-          step={50}
+          max={1}
+          step={0.01}
           defaultValue={liveness}
-          graduated
           progress
           onChange={handleLivenessChange}
           className='my-slider'
         />
-        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {liveness}</p>
+        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {Math.round(liveness * 100)}</p>
 
-        <p className='text-white font-mont text-2xl pb-6'>2. How important is it for the music you listen to be loud and impactful?</p>
+        <p className='text-white font-mont text-2xl pb-6'>2. How important is it for the music you listen to be popular or well-known?</p>
         <Slider
           min={0}
-          max={100}
-          step={50}
-          defaultValue={loudness}
-          graduated
+          max={1}
+          step={0.01}
+          defaultValue={popularity}
           progress
-          onChange={handleLoudnessChange}
+          onChange={handlePopularityChange}
           className='my-slider'
         />
-        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {loudness}</p>
+        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {Math.round(popularity * 100)}</p>
 
         <p className='text-white font-mont text-2xl pb-6'>3. How important is it for the music you listen to to have a beat that makes you want to dance?</p>
         <Slider
           min={0}
-          max={100}
-          step={50}
+          max={1}
+          step={0.01}
           defaultValue={danceability}
-          graduated
           progress
           onChange={handleDanceabilityChange}
           className='my-slider'
         />
-        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {danceability}</p>
+        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {Math.round(danceability * 100)}</p>
 
         <p className='text-white font-mont text-2xl pb-6'>4. How important is it for the music you listen to to have a high level of energy and intensity?</p>
         <Slider
           min={0}
-          max={100}
-          step={50}
+          max={1}
+          step={0.01}
           defaultValue={energy}
-          graduated
           progress
           onChange={handleEnergyChange}
           className='my-slider'
         />
-        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {energy}</p>
+        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {Math.round(energy * 100)}</p>
 
-        <p className='text-white font-mont text-2xl pb-6'>5. How important is it for the music you listen to to have lyrics that are clear and easy to understand?</p>
+        <p className='text-white font-mont text-2xl pb-6'>5. How important is it for the music you listen to to have a natural, raw sound?</p>
         <Slider
           min={0}
-          max={100}
-          step={50}
-          defaultValue={speechiness}
-          graduated
+          max={1}
+          step={0.01}
+          defaultValue={acousticness}
           progress
-          onChange={handleSpeechinessChange}
+          onChange={handleAcousticnessChange}
           className='my-slider'
         />
-        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {speechiness}</p>
+        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {Math.round(acousticness * 100)}</p>
 
         <p className='text-white font-mont text-2xl pb-6'>6. How important is it for the music you listen to to have a positive or uplifting mood?</p>
         <Slider
           min={0}
-          max={100}
-          step={50}
+          max={1}
+          step={0.01}
           defaultValue={valence}
-          graduated
           progress
           onChange={handleValenceChange}
           className='my-slider'
         />
-        <p className='text-white font-mont text-xl pt-4 pb-4' >You selected: {valence}</p>
+        <p className='text-white font-mont text-xl pt-4 pb-4' >You selected: {Math.round(valence * 100)}</p>
 
-        <p className='text-white font-mont text-2xl pb-6'>7. How important is it for the music you listen to to have a fast or slow tempo?</p>
+        <p className='text-white font-mont text-2xl pb-6'>7. How important is it for the music you listen to to have a fast bpm?</p>
         <Slider
           min={0}
-          max={100}
-          step={50}
-          defaultValue={tempo}
-          graduated
+          max={1}
+          step={0.01}
+          defaultValue={bpm}
           progress
-          onChange={handleTempoChange}
+          onChange={handleBpmChange}
           className='my-slider'
         />
-        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {tempo}</p>
-        <div className='flex justify-center'>
-          <button className='bg-gradient w-80 text-bebas text-3xl text-purple py-2 px-10 rounded-full' onClick={() => handleMapClick()}>Continue to Map</button>
+        <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {Math.round(bpm * 100)}</p>
+        <div className='flex flex-col justify-center items-center'>
+          {!result && <button className='bg-gradient w-80 text-bebas text-4xl text-purple py-2 px-10 rounded-full' onClick={() => handleMusicClick()}>Check Results</button>}
+          {result && <h1 className='text-bebas text-6xl md:text-8xl lg:text-10xl text-gradient pb-4 pt-20'>Your Genre is : {result} </h1>}
+          {result && <button className='bg-gradient w-80 text-bebas text-4xl text-purple py-2 px-10 rounded-full mt-10' onClick={() => handleMapClick()}>Check Your Map</button>}
         </div>
       </div>
     </div>
