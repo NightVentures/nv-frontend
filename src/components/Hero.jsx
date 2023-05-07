@@ -13,8 +13,8 @@ const Hero = () => {
         textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         marginBottom: '100px'
       }}>
-        <h1 className='text-bebas text-6xl md:text-8xl lg:text-10xl text-gradient pb-4 pt-6'>YOUR PERSONALIZED NIGHTCLUB. </h1>
-        <h2 className='font-mont text-3xl md:text-5xl lg:text-5xl text-yellow pt-8'>Find Your Rhythm, Find Your Club.</h2>
+        <h1 className='text-bebas text-4xl md:text-6xl lg:text-8xl text-gradient md:pb-4 md:pt-6'>YOUR PERSONALIZED NIGHTCLUB. </h1>
+        <h2 className='font-mont text-xl md:text-4xl pt-0 md:pt-8 lg:text-5xl text-yellow'>Find Your Rhythm, Find Your Club.</h2>
       </div>
       <button style={{
         position: 'absolute',
@@ -25,9 +25,6 @@ const Hero = () => {
         <img src='/expand.svg' alt='expand' className='animate-bounce w-10 h-10' />
       </button>
     </div>
-
-
-
   )
 }
 

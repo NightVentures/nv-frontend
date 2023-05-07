@@ -7,6 +7,7 @@ import Flip from "./Flip";
 import MusicTest from "./MusicTest";
 import MapPage from "./MapPage";
 import Login from "./Login";
+import About from "./About";
 import AuthProvider from "./AuthContext";
 
 export {
@@ -20,4 +21,5 @@ export {
   MapPage,
   Login,
   AuthProvider,
+  About,
 };

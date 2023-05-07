@@ -17,6 +17,22 @@
   );
 }
 
+.bg-purple{
+  background-color: #55286f;
+}
+
+@media (max-width: 640px) {
+  input#inp {
+    width: 100%;
+    max-width: 350px; /* adjust the max-width as needed */
+  }
+
+  button#login{
+    width: 100%;
+    max-width: 350px; /* adjust the max-width as needed */
+  }
+}
+
 .text-bebas {
   font-family: "Bebas Neue", cursive;
 }
@@ -68,8 +84,6 @@ button#forgot:hover {
   img#login-image {
     display: none;
   }
-
-  
 }
 
 .rs-slider-bar {

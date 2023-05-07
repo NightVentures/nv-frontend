@@ -3,9 +3,9 @@ import footer from '/footer.jpg'
 
 const Footer = () => {
   return (
-    <div style={{ position: 'relative' }}>
-      <img id="footer" src={footer} />
-      <h1 className="text-bebas text-5xl md:text-6xl lg:text-8xl text-yellow" style={{
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <img id="footer" src={footer}  />
+      <h1 className="text-bebas text-4xl p-5 md:text-6xl lg:text-8xl text-yellow" style={{
         position: 'absolute',
         top: '20%',
         left: '50%',
