@@ -66,7 +66,7 @@ const MusicTest = () => {
 
 
   const handleMusicClick = () => {
-    const features = { bpm: bpm, energy: energy, danceability: danceabilitu, liveness: liveness, valence: valence, acousticness: acousticness, popularity: popularity };
+    const features = { bpm: bpm, energy: energy, danceability: danceability, liveness: liveness, valence: valence, acousticness: acousticness, popularity: popularity };
     const data = {
       features: Object.values(features).map((value) => [value]),
     };
