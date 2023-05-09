@@ -4,7 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoicml3YWh0IiwiYSI6ImNsZ21vMW41YTA3cW8zZW1tdWQ4a2hwNmYifQ.Mm19AWrD9BVC24ZeyJq-Vw';
 // replace later with get value from database
-const currGenre='soul';
+const currGenre=localStorage.getItem("genre");
 
 
 function RealMap() {
