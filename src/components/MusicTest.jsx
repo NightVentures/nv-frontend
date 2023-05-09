@@ -84,6 +84,7 @@ const MusicTest = () => {
         console.log('Success:', data);
         setResult(data.predicted_genre)
         console.log("Features: ", features);
+        localStorage.setItem('genre', data.genre_mapping);
       })
       .catch((error) => {
         console.error('Error:', error);
