@@ -3,11 +3,9 @@ import mapboxgl, { Marker, maxParallelImageRequests } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoicml3YWh0IiwiYSI6ImNsZ21vMW41YTA3cW8zZW1tdWQ4a2hwNmYifQ.Mm19AWrD9BVC24ZeyJq-Vw';
-// replace later with get value from database
-
 
 function RealMap() {
-    const genres=new Set(["pop", "r&b", "soul", "hip-hop", "rock", "country", "edm", "house", "electronic", "latin"]);
+    const genres = new Set(["pop", "r&b", "soul", "hip-hop", "rock", "country", "edm", "house", "electronic", "latin"]);
     const currGenre = localStorage.getItem("genre");
     const [viewport, setViewport] = useState({
         width: '100vw',
@@ -32,6 +30,7 @@ function RealMap() {
             center: [viewport.longitude, viewport.latitude],
             zoom: viewport.zoom,
         });
+
         //define nearby clubs here (7otelon locations for now can later use database)
         const allClubs = [
             { "name": "AHM", latitude: 33.90636145572444, longitude: 35.50666671482372, genres: ["pop", "electronic", "soul", "house"] },
@@ -59,28 +58,22 @@ function RealMap() {
             { "name": "Phantom Zahleh", latitude: 33.83183345899651, longitude: 35.90361495397604, genres: ["pop", "rock", "hip-hop", "country"] },
             { "name": "Seen Beirut", latitude: 33.94454124879371, longitude: 35.590866792047905, genres: ["hip-hop", "r&b", "soul", "electronic"] },
             { "name": "Etiolle the Club", latitude: 34.254252974379796, longitude: 35.66024916931737, genres: ["pop", "latin", "edm", "country"] },
-
-
-
-
-
-
-
-
-
         ];
+
         //get nearby clubs based on genre 
         var nearbyClubs = [];
-        if(genres.has(currGenre)){
-        for (var i = 0; i < allClubs.length; i++) {
-            if (allClubs[i].genres.includes(currGenre)) {
-                nearbyClubs.push(allClubs[i]);
+        if (genres.has(currGenre)) {
+            for (var i = 0; i < allClubs.length; i++) {
+                if (allClubs[i].genres.includes(currGenre)) {
+                    nearbyClubs.push(allClubs[i]);
+                }
             }
         }
-    }
-        else{
-            nearbyClubs=allClubs;
+
+        else {
+            nearbyClubs = allClubs;
         }
+
         //add markers to map
         const markers = nearbyClubs.map((club) => {
 
@@ -91,8 +84,8 @@ function RealMap() {
                 .addTo(map);
             return marker;
         });
-        setMarkers(markers)
 
+        setMarkers(markers)
 
         map.on('move', () => {
             handleViewportChange({

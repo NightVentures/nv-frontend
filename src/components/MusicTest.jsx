@@ -71,7 +71,7 @@ const MusicTest = () => {
       features: Object.values(features).map((value) => [value]),
     };
 
-    fetch('http://localhost:8000/predict', {
+    fetch('https://nv-backend.onrender.com/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
