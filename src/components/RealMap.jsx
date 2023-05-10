@@ -7,6 +7,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicml3YWh0IiwiYSI6ImNsZ21vMW41YTA3cW8zZW1tdWQ4a
 
 
 function RealMap() {
+    const genres=new Set(["pop", "r&b", "soul", "hip-hop", "rock", "country", "edm", "house", "electronic", "latin"]);
     const currGenre = localStorage.getItem("genre");
     const [viewport, setViewport] = useState({
         width: '100vw',
@@ -70,10 +71,15 @@ function RealMap() {
         ];
         //get nearby clubs based on genre 
         var nearbyClubs = [];
+        if(genres.has(currGenre)){
         for (var i = 0; i < allClubs.length; i++) {
             if (allClubs[i].genres.includes(currGenre)) {
                 nearbyClubs.push(allClubs[i]);
             }
+        }
+    }
+        else{
+            nearbyClubs=allClubs;
         }
         //add markers to map
         const markers = nearbyClubs.map((club) => {
