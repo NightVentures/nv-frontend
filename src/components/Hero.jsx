@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className='flex justify-center items-center h-screen relative' style={{
       height: 'calc(100vh - 80px)',
-      backgroundImage: "url('/main.jpg')",
+      backgroundImage: "url('https://i.ibb.co/8gdRSm0/main.webp')",
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
     }}>
@@ -13,7 +13,11 @@ const Hero = () => {
         textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         marginBottom: '100px'
       }}>
-        <h1 className='text-bebas text-4xl md:text-6xl lg:text-8xl text-gradient md:pb-4 md:pt-6'>YOUR PERSONALIZED NIGHTCLUB. </h1>
+        <h1 className="text-bebas text-6xl md:text-6xl lg:text-8xl text-gradient md:pb-4 md:pt-6 flex flex-col md:flex-row">
+          <span className="block w-full sm:w-auto mr-3">YOUR</span>
+          <span className="block w-full sm:w-auto mr-3">PERSONALIZED</span>
+          <span className="block w-full sm:w-auto">NIGHTCLUB.</span>
+        </h1>
         <h2 className='font-mont text-xl md:text-4xl pt-0 md:pt-8 lg:text-5xl text-yellow'>Find Your Rhythm, Find Your Club.</h2>
       </div>
       <button style={{

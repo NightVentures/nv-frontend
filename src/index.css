@@ -17,7 +17,7 @@
   );
 }
 
-.bg-purple{
+.bg-purple {
   background-color: #55286f;
 }
 
@@ -27,7 +27,7 @@
     max-width: 350px; /* adjust the max-width as needed */
   }
 
-  button#login{
+  button#login {
     width: 100%;
     max-width: 350px; /* adjust the max-width as needed */
   }

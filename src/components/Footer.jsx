@@ -3,8 +3,8 @@ import footer from '/footer.jpg'
 
 const Footer = () => {
   return (
-    <div style={{ position: 'relative', display: 'inline-block' }}>
-      <img id="footer" src={footer}  />
+    <div style={{ position: 'relative', display: 'inline-block', height: "auto" }}>
+      <img id="footer" src={footer} />
       <h1 className="text-bebas text-4xl p-5 md:text-6xl lg:text-8xl text-yellow" style={{
         position: 'absolute',
         top: '20%',

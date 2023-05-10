@@ -52,7 +52,7 @@ function MapPage() {
 
           <div className={`md:flex md:items-center md:justify-end absolute top-20 left-0 right-0 bg-purple z-10 md:z-auto overflow-hidden transition-all duration-500 ${showMenu ? 'h-auto py-2' : 'h-0'}`} style={{ width: '80%', borderRadius: '10px', margin: '0 auto', boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.5)' }}>
             <div className="flex flex-col items-center md:flex-row md:ml-3 md:mr-6">
-              <button className="font-mont font-semibold text-xl text-yellow mb-2 md:mb-0 md:mr-6 border-b border-transparent hover:border-white block md:inline-block" onClick={() => handleLoginClick()}>Login</button>
+              <button className="font-mont font-semibold text-xl text-yellow mb-2 md:mb-0 md:mr-6 border-b border-transparent hover:border-white block md:inline-block" onClick={() => handleHomeClick()}>Home</button>
               <button className="font-mont font-semibold text-xl text-yellow mb-2 md:mb-0 md:mr-6 border-b border-transparent hover:border-white block md:inline-block" onClick={() => handleAboutClick()}>About</button>
               <button className="font-mont font-semibold text-xl text-yellow mb-2 md:mb-0 md:mr-6 border-b border-transparent hover:border-white block md:inline-block" onClick={() => handleMusicClick()}>Music</button>
               <button className="font-mont font-semibold text-xl text-yellow mb-2 md:mb-0 md:mr-6 border-b border-transparent hover:border-white block md:inline-block" onClick={() => handleMapClick()}>Map</button>

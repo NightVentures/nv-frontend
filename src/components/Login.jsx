@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import login from '/login-pic.jpg'
+import login from '/login-pic.webp'
 
 function Login(props) {
     const [currentView, setCurrentView] = useState("logIn")
@@ -65,7 +65,7 @@ function Login(props) {
                         <div className='flex flex-col justify-center items-center'>
                             <h1 className='font-mont text-5xl md:text-6xl text-white pb-4'>Reset Password</h1>
                             <div className='flex flex-col items-center'>
-                                <input id = "inp" className='font-mont text-xl text-dark-pink bg-transparent p-3 mt-6 mb-4 border-2 rounded-lg' style={{
+                                <input id="inp" className='font-mont text-xl text-dark-pink bg-transparent p-3 mt-6 mb-4 border-2 rounded-lg' style={{
                                     border: "2px solid #D9BBF9",
                                     borderRadius: "7px",
                                     width: "451px",
@@ -123,7 +123,7 @@ function Login(props) {
     }
 
     return (
-        <div>
+        <div style={{ height: "100vh" }}>
             <div style={{ backgroundColor: '#55286f', width: "100%", padding: "15px", paddingBottom: "20px" }}>
                 <div className='flex justify-between items-center'>
                     <h1 className='text-mont text-3xl text-light-pink ml-3'>NightVentures</h1>
@@ -131,7 +131,7 @@ function Login(props) {
                 </div>
             </div>
             <div style={{
-                height: "auto", backgroundColor: "#210B2C", width: "100%",
+                height: "100%", backgroundColor: "#210B2C", width: "100%",
                 display: 'block', padding: 30
             }}>
                 <div className='flex flex-col lg:flex-row justify-center items-center'>
@@ -140,7 +140,7 @@ function Login(props) {
                     </div>
                     <div className='flex flex-end lg:w-1/2'>
                         <img id="login-image" src={login}
-                            style={{ width: "auto", height: 900, borderRadius: "63px", opacity: "0.6", transition: "opacity 0.3s" }}
+                            style={{ width: "auto", height: 700, borderRadius: "63px", opacity: "0.6", transition: "opacity 0.3s" }}
                             onMouseOver={(e) => { e.currentTarget.style.opacity = "1.0" }}
                             onMouseOut={(e) => { e.currentTarget.style.opacity = "0.6" }}
                         />

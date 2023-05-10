@@ -1,6 +1,7 @@
 import React from 'react'
-import map from '/Map.png'
+import map from '/Map.webp'
 import { useNavigate } from 'react-router-dom';
+
 const Map = () => {
   const navigate = useNavigate();
   const handleMapClick = () => {

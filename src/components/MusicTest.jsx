@@ -217,7 +217,7 @@ const MusicTest = () => {
         <p className='text-white font-mont text-xl pt-4 pb-4'>You selected: {bpm}</p>
         <div className='flex flex-col justify-center items-center'>
           {!result && <button className='bg-gradient w-80 text-bebas text-3xl md:text-4xl text-purple py-2 px-10 rounded-full' onClick={() => handleMusicClick()}>Check Results</button>}
-          {result && <h1 className='text-bebas text-6xl md:text-8xl lg:text-10xl text-gradient pb-4 pt-20'>Your Genre is : {result} </h1>}
+          {result && <h1 className='text-bebas text-6xl md:text-8xl lg:text-10xl text-gradient pb-4 pt-20'>Your Genre is {result}.</h1>}
           {result && <button className='bg-gradient w-80 text-bebas text-4xl text-purple py-2 px-10 rounded-full mt-10' onClick={() => handleMapClick()}>Check Your Map</button>}
         </div>
       </div>
