@@ -72,7 +72,6 @@ function RealMap() {
         //get nearby clubs based on genre 
         var nearbyClubs = [];
         if(genres.has(currGenre)){
-       
         for (var i = 0; i < allClubs.length; i++) {
             if (allClubs[i].genres.includes(currGenre)) {
                 nearbyClubs.push(allClubs[i]);
