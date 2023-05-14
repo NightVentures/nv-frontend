@@ -7,7 +7,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
+    <Router basename='/'>
       <Routes>
         <Route exact path="/" element={<React.Fragment><Navbar /><Hero /><App /></React.Fragment>} />
         <Route exact path="/login" element={<Login />} />
