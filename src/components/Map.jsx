@@ -6,6 +6,7 @@ const Map = () => {
   const navigate = useNavigate();
   const handleMapClick = () => {
     navigate('/map');
+    window.scrollTo(0, 0);
   }
 
   return (

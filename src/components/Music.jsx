@@ -5,6 +5,7 @@ const Music = () => {
   const navigate = useNavigate();
   const handleMusicClick = () => {
     navigate('/music-test')
+    window.scrollTo(0, 0);
   }
 
   return (
